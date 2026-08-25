@@ -5,5 +5,12 @@
     color: rgb(58, 21, 105);
 }
 .fondo{
-    
+    background-image: url(../img/fondo.jpg);
 }
+.lista-horizontal {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 15px; 
+        }
