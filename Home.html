@@ -18,7 +18,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                <a class="nav-link active" aria-current="page" href="Home.html">Home</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="pagina2.html">Contactanos</a>
@@ -41,6 +41,57 @@
         </div>
         </nav>
 
+        <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-5">
+        <div class="card shadow-sm p-4">
+          <h4 class="mb-3 text-center">Crear Usuario</h4>
+          
+          <form id="formCrearUsuario">
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input type="text" id="nombre" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Correo Electrónico</label>
+              <input type="email" id="email" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Guardar Usuario</button>
+          </form>
 
+          <div id="mensajeExito" class="alert alert-success mt-3 d-none text-center" role="alert">
+            ¡Usuario creado con éxito! 🎉
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.4/dist/confetti.browser.min.js"></script>
+
+  <script>
+    document.getElementById('formCrearUsuario').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById('nombre').value;
+      const email = document.getElementById('email').value;
+
+      console.log('Usuario registrado:', { nombre, email });
+
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+
+      const mensaje = document.getElementById('mensajeExito');
+      mensaje.classList.remove('d-none');
+      this.reset();
+
+      setTimeout(() => {
+        mensaje.classList.add('d-none');
+      }, 3000);
+    });
+  </script>
 </body>
 </html>
